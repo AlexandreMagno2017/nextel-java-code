@@ -1,0 +1,1 @@
+java -jar nextel-test-dropwizard-0.0.1-SNAPSHOT.jar server example.yml
