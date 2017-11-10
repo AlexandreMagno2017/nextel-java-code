@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="jpa-app" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>br.com.nextel.model.AuditEvent</class>
+		<class>br.com.nextel.model.ProtectionArea</class>
+		<class>br.com.nextel.model.Role</class>
+		<class>br.com.nextel.model.SuperHero</class>
+		<class>br.com.nextel.model.SuperPower</class>
+		<class>br.com.nextel.model.User</class>
+
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+		<!-- http://www.eclipse.org/eclipselink/api/2.5/org/eclipse/persistence/config/PersistenceUnitProperties.html#CACHE_TYPE_DEFAULT -->
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+
+			<!-- <property name="hibernate.connection.provider_class" value="com.zaxxer.hikari.hibernate.HikariConnectionProvider" 
+				/> -->
+			<property name="datasource.dataSourceClassName"
+				value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+			<!-- Used to configuring connection pool -->
+			<property name="eclipselink.connection-pool.default.initial"
+				value="10" />
+			<property name="eclipselink.connection-pool.node2.min"
+				value="10" />
+			<property name="eclipselink.connection-pool.node2.max"
+				value="20" />
+			<property name="eclipselink.target-database" value="MySQL" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/nextel_super_hero" />
+			<!-- <property name="hibernate.hikari.dataSource.user" value="root" /> 
+				<property name="hibernate.hikari.dataSource.password" value="m@gno15!" /> -->
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="m@gno15!" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.schema-generation.database.action"
+				value="create" />
+			<property name="jdbc.persistence.logging" value="true" />
+			<property name="jdbc.persistence.logfile" value="C:\temp\jdbc-eclipselink/JDBC.log" />
+			<property name="eclipselink.logging.level" value="FINEST" />
+			<property name="eclipselink.logging.file" value="C:\temp\jdbc-eclipselink/eclipselink.log" />
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="eclipselink.logging.logger" value="DefaultLogger" />
+			<property name="eclipselink.logging.timestamp" value="true" />
+			<property name="eclipselink.logging.session" value="true" />
+			<property name="eclipselink.logging.exceptions" value="true" />
+			<property name="eclipselink.logging.thread" value="true" />
+			<property name="eclipselink.jdbc.cache-statements" value="true" />
+			<property name="eclipselink.jdbc.cache-statements.size"
+				value="50" />
+			<property name="eclipselink.ddl-generation.index-foreign-keys"
+				value="true" />
+			<property name="eclipselink.query-results-cache" value="true" />
+			<property name="eclipselink.profiler" value="PerformanceProfiler" />
+			<property name="eclipselink.profiler" value="QueryMonitor" />
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			<property name="eclipselink.application-location" value="CC:\temp\jdbc-eclipselink" />
+
+			<!-- Avoids flush being triggered before every query execution. -->
+			<property name="eclipselink.persistence-context.flush-mode"
+				value="COMMIT" />
+
+			<!-- Configure connection pool. -->
+			<property name="eclipselink.jdbc.connections.initial" value="1" />
+			<property name="eclipselink.jdbc.connections.min" value="64" />
+			<property name="eclipselink.jdbc.connections.max" value="64" />
+
+			<property name="eclipselink.jdbc.batch-writing.size" value="1000" />
+			<property name="eclipselink.ddl-generation.output-mode"
+				value="both" />
+		</properties>
+
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,31 @@
+template: Hello, %s!
+
+defaultName: ${DW_DEFAULT_NAME:-Stranger}
+
+login: magno
+
+password: magno
+
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+      bindHost: 127.0.0.1 # only bind to loopback
+      headerCacheSize: 512 bytes
+      outputBufferSize: 32KiB
+      maxRequestHeaderSize: 8KiB
+      maxResponseHeaderSize: 8KiB
+      inputBufferSize: 8KiB
+      idleTimeout: 60 seconds
+      minBufferPoolSize: 64 bytes
+      bufferPoolIncrement: 1KiB
+      maxBufferPoolSize: 64KiB
+      acceptorThreads: 1
+      selectorThreads: 2
+      acceptQueueSize: 1024
+      reuseAddress: true
+      soLingerTime: 345s
+      useServerHeader: false
+      useDateHeader: true
+      useForwardedHeaders: true
